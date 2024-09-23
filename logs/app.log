@@ -1,0 +1,75 @@
+2024-09-22 15:22:44 INFO: Server running on port 5000
+2024-09-22 15:24:00 INFO: Server running on port 5000
+2024-09-22 15:26:13 INFO: Server running on port 5000
+2024-09-22 15:26:24 INFO: Server running on port 5000
+2024-09-22 15:26:27 INFO: Server running on port 5000
+2024-09-22 15:26:38 INFO: Server running on port 5000
+2024-09-22 15:27:02 INFO: Server running on port 5000
+2024-09-22 15:27:05 INFO: Server running on port 5000
+2024-09-22 15:27:26 INFO: Server running on port 5000
+2024-09-22 15:27:30 INFO: Server running on port 5000
+2024-09-22 15:28:30 INFO: Server running on port 5000
+2024-09-22 15:28:45 INFO: Server running on port 5000
+2024-09-22 15:29:16 INFO: Server running on port 5000
+2024-09-22 15:29:50 INFO: Server running on port 5000
+2024-09-22 15:29:52 INFO: Server running on port 5000
+2024-09-22 15:31:40 INFO: Server running on port 5000
+2024-09-22 15:31:42 INFO: Server running on port 5000
+2024-09-22 15:31:45 INFO: Server running on port 5000
+2024-09-22 15:31:54 INFO: Server running on port 5000
+2024-09-22 15:32:14 INFO: Server running on port 5000
+2024-09-22 15:32:26 INFO: Server running on port 5000
+2024-09-22 15:59:52 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `[aria-label="Write something..."]` failed: Protocol error (Runtime.callFunctionOn): Target closed
+2024-09-22 15:59:53 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `[aria-label="Write something..."]` failed: Protocol error (Runtime.callFunctionOn): Target closed
+2024-09-22 15:59:53 ERROR: Error deleting image file: ENOENT: no such file or directory, unlink 'C:\Users\Geek Labs Holdings\Desktop\scraping-facebook\uploads\1727009943218-677450608-8bc103afbea75b591370177c9b18e52d.jpg'
+2024-09-22 16:04:19 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `[aria-label="Write something..."]` failed: Waiting failed: 30000ms exceeded
+2024-09-22 16:04:19 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `[aria-label="Write something..."]` failed: Waiting failed: 30000ms exceeded
+2024-09-22 16:04:19 ERROR: Error deleting image file: ENOENT: no such file or directory, unlink 'C:\Users\Geek Labs Holdings\Desktop\scraping-facebook\uploads\1727010207117-470811757-8bc103afbea75b591370177c9b18e52d.jpg'
+2024-09-22 16:18:54 INFO: Server running on port 5000
+2024-09-22 16:20:42 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 16:20:42 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 16:20:42 ERROR: Error deleting image file: ENOENT: no such file or directory, unlink 'C:\Users\Geek Labs Holdings\Desktop\scraping-facebook\uploads\1727011163650-501654932-8bc103afbea75b591370177c9b18e52d.jpg'
+2024-09-22 16:21:32 INFO: Server running on port 5000
+2024-09-22 16:23:08 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 16:23:08 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 16:23:08 ERROR: Error deleting image file: ENOENT: no such file or directory, unlink 'C:\Users\Geek Labs Holdings\Desktop\scraping-facebook\uploads\1727011311129-977118676-8bc103afbea75b591370177c9b18e52d.jpg'
+2024-09-22 16:25:29 INFO: Server running on port 5000
+2024-09-22 16:25:30 INFO: Server running on port 5000
+2024-09-22 16:25:31 INFO: Server running on port 5000
+2024-09-22 16:25:33 INFO: Server running on port 5000
+2024-09-22 16:25:44 INFO: Server running on port 5000
+2024-09-22 16:26:12 INFO: Server running on port 5000
+2024-09-22 16:26:19 INFO: Server running on port 5000
+2024-09-22 16:26:22 INFO: Server running on port 5000
+2024-09-22 16:31:39 INFO: Server running on port 5000
+2024-09-22 16:32:43 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: page.waitForXPath is not a function
+2024-09-22 16:32:44 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: page.waitForXPath is not a function
+2024-09-22 16:32:44 ERROR: Error deleting image file: ENOENT: no such file or directory, unlink 'C:\Users\Geek Labs Holdings\Desktop\scraping-facebook\uploads\1727011947176-70044922-8bc103afbea75b591370177c9b18e52d.jpg'
+2024-09-22 16:34:24 INFO: Server running on port 5000
+2024-09-22 16:35:58 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `div[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 16:35:59 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `div[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 16:35:59 ERROR: Error deleting image file: ENOENT: no such file or directory, unlink 'C:\Users\Geek Labs Holdings\Desktop\scraping-facebook\uploads\1727012082894-592060870-8bc103afbea75b591370177c9b18e52d.jpg'
+2024-09-22 16:46:28 INFO: Server running on port 5000
+2024-09-22 16:46:29 INFO: Server running on port 5000
+2024-09-22 16:47:51 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `div[role="button"] span[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 16:47:51 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `div[role="button"] span[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 16:49:31 INFO: Server running on port 5000
+2024-09-22 16:50:28 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `div[role="button"] span[aria-label="Write something..."]` failed: Protocol error (Runtime.callFunctionOn): Target closed
+2024-09-22 16:50:28 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `div[role="button"] span[aria-label="Write something..."]` failed: Protocol error (Runtime.callFunctionOn): Target closed
+2024-09-22 16:51:18 INFO: Server running on port 5000
+2024-09-22 16:51:23 INFO: Server running on port 5000
+2024-09-22 16:51:26 INFO: Server running on port 5000
+2024-09-22 16:52:11 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `div[role="button"] span[aria-label="Write something..."]` failed: Protocol error (Runtime.callFunctionOn): Target closed
+2024-09-22 16:52:11 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `div[role="button"] span[aria-label="Write something..."]` failed: Protocol error (Runtime.callFunctionOn): Target closed
+2024-09-22 16:53:29 INFO: Server running on port 5000
+2024-09-22 16:53:30 INFO: Server running on port 5000
+2024-09-22 16:54:16 INFO: Server running on port 5000
+2024-09-22 16:54:23 INFO: Server running on port 5000
+2024-09-22 16:54:40 INFO: Server running on port 5000
+2024-09-22 16:54:42 INFO: Server running on port 5000
+2024-09-22 16:54:43 INFO: Server running on port 5000
+2024-09-22 16:56:00 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `div[role="button"] span[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 16:56:00 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `div[role="button"] span[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 17:04:40 INFO: Server running on port 5000
+2024-09-22 17:06:54 ERROR: Error in loginAndPostWithFeatures function: Failed to post to group with features: Waiting for selector `div[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
+2024-09-22 17:06:54 ERROR: Error during scraping and posting with features: Failed to complete login and post process with features: Failed to post to group with features: Waiting for selector `div[aria-label="Write something..."]` failed: Waiting failed: 60000ms exceeded
