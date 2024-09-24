@@ -1,5 +1,5 @@
 # Use a lightweight Node.js image
-FROM node:18-slim
+FROM node:20.16.0-slim
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
