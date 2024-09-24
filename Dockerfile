@@ -28,11 +28,12 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Chrome
-RUN wget -qO- https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
-    | dpkg -i - && apt-get -fy install
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb \
+    && dpkg -i google-chrome.deb || apt-get -fy install \
+    && rm google-chrome.deb
 
-# Install Puppeteer (this ensures it has the required Chromium version)
-RUN npm install puppeteer --unsafe-perm
+    # Optionally install Chromium
+RUN apt-get update && apt-get install -y chromium
 
 # Set working directory
 WORKDIR /app
@@ -53,4 +54,4 @@ RUN mkdir -p /app/uploads
 EXPOSE 5000
 
 # Start the application
-CMD ["node", "index.js"]
+CMD ["node", "app.js"]

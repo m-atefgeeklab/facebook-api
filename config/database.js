@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
-const logger = require('../utils/logger');
+const mongoose = require("mongoose");
+const logger = require("../utils/logger");
 
 const dbConnection = () => {
   mongoose
-    .connect('mongodb://127.0.0.1/facebook-scraping')
+    .connect(process.env.MONGO_DB_URI)
     .then((conn) => {
       logger.info(`MongoDB Connected on host: ${conn.connection.host}`);
     })

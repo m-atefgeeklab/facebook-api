@@ -7,6 +7,8 @@ services:
       - ./uploads:/app/uploads  # Persist uploaded files to host machine
     environment:
       - NODE_ENV=production
+      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium  # Point Puppeteer to Chromium path if installed separately
+      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true  # Skip downloading Chromium if using system-installed version
     networks:
       - default
     ports:
