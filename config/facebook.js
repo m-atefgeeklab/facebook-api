@@ -6,7 +6,7 @@ const config = {
     password: "#pass",
     loginButton: 'button[name="login"]',
     notificationButton: 'div[role="button"]:not([aria-hidden="true"])',
-    createPostButton: 'div[role="button"][tabindex="0"] .xi81zsa',
+    createPostButton: 'div[role="button"][tabindex="0"].x1i10hfl .xi81zsa.x1lkfr7t.xkjl1po.x1mzt3pk.xh8yej3.x13faqbe',
     postBox: 'div[role="textbox"]',
     mediaAttachmentButton: 'div[aria-label="Photo/video"]',
     postButton: 'div[aria-label="Post"]',

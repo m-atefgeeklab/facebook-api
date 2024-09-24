@@ -1,0 +1,16 @@
+version: "3"
+services:
+  scraper:
+    build: .
+    volumes:
+      - .:/app
+      - ./uploads:/app/uploads  # Persist uploaded files to host machine
+    environment:
+      - NODE_ENV=production
+    networks:
+      - default
+    ports:
+      - "5000:5000"  # Map the port (replace with your app's port if different)
+networks:
+  default:
+    driver: bridge

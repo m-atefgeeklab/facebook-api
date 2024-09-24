@@ -1,6 +1,10 @@
 const puppeteer = require("puppeteer");
+const mongoose = require('mongoose');
 const { fillInput, clickButton, navigateToPage } = require("../utils/scraping");
 const { delay } = require("../utils/delay");
+const logger = require("../utils/logger");
+const Post = require("../models/GroupPost");
+const Group = require("../models/Group");
 
 async function scrapeAndPostData(config, data) {
   const { loginUrl, groupUrl, selectors } = config;
@@ -8,11 +12,11 @@ async function scrapeAndPostData(config, data) {
 
   const browser = await puppeteer.launch({
     headless: false,
-    slowMo: 20,
+    slowMo: 10,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
   page.setDefaultNavigationTimeout(1000000);
-  await page.setViewport({ width: 800, height: 1200 });
 
   try {
     // Navigate to the login page and log in
@@ -21,36 +25,59 @@ async function scrapeAndPostData(config, data) {
     await fillInput(page, selectors.password, password);
     await clickButton(page, selectors.loginButton);
     await page.waitForNavigation({ waitUntil: "domcontentloaded" });
-    await delay(3000); // Wait for login to complete
+    await delay(1000, 3000); // Random delay after login
 
-    // Navigate to the group page after login
-    await navigateToPage(page, `${groupUrl}${groupId}`);
-    await delay(3000); // Ensure the group page loads
-
-    // Open the post area
+    // Handle notification
     await page.waitForSelector(selectors.notificationButton, {
       visible: true,
       timeout: 10000,
     });
     await page.click(selectors.notificationButton);
-    await delay(1000); // Allow time for post area to activate
+    await delay(500, 1500); // Random delay before post area activation
 
+    // Navigate to the group page after login
+    await navigateToPage(page, `${groupUrl}${groupId}`);
+    await delay(1000, 3000); // Random delay after navigation
+
+    // Handle notification
+    await page.waitForSelector(selectors.notificationButton, {
+      visible: true,
+      timeout: 10000,
+    });
+    await page.click(selectors.notificationButton);
+    await delay(500, 1500); // Random delay before post area activation
+
+    await page.waitForSelector(
+      'a[href*="/members/"][role="link"][tabindex="0"]',
+      { visible: true, timeout: 10000 }
+    );
+
+    const members = await page.evaluate(() => {
+      const anchor = document.querySelector(
+        'a[href*="/members/"][role="link"][tabindex="0"]'
+      );
+      return anchor ? anchor.innerText : null;
+    });
+
+    // Open the post area
     await page.waitForSelector(selectors.createPostButton, {
       visible: true,
       timeout: 10000,
     });
-    await page.click(selectors.createPostButton, { delay: 300 });
-    await delay(3000); // Wait for the post box popup to appear
+    await page.click(selectors.createPostButton);
+    await delay(2000, 4000); // Random delay before post box appears
 
     // Fill in the post content
     await page.waitForSelector(selectors.postBox, {
       visible: true,
       timeout: 10000,
     });
-    await page.click(selectors.postBox, { delay: 300 });
+    await page.click(selectors.postBox);
 
-    // Type the post message with delay to mimic human behavior
-    await page.keyboard.type(postContent, { delay: 300 });
+    // Type the post message with random delay to mimic human behavior
+    await page.keyboard.type(postContent, {
+      delay: Math.floor(Math.random() * 200) + 50,
+    });
 
     // Optional: If images are provided, attach them to the post
     if (images && images.length > 0) {
@@ -64,17 +91,48 @@ async function scrapeAndPostData(config, data) {
       }
     }
 
-    // Click on the 'Post' button with a delay
+    // Click on the 'Post' button with a random delay
     await page.waitForSelector(selectors.postButton, { visible: true });
-    await page.click(selectors.postButton, { delay: 300 });
-    await delay(3000); // Allow time for the post to be submitted
+    await delay(500, 1500); // Random delay before clicking post button
+    await page.click(selectors.postButton);
+    await delay(1000, 2000); // Random delay after post
 
-    console.log("Post created successfully!");
+    logger.info("Post created successfully!");
+
+    // Check if the group exists
+    let group = await Group.findOne({ _id: groupId });
+    if (!group) {
+      // If group doesn't exist, create a new one
+      group = new Group({
+        _id: groupId,
+        members: members,
+      });
+      await group.save();
+      logger.info(`New group created with ID: ${groupId}`);
+    } else {
+      // Update members count for existing group
+      await group.updateMembers(members);
+      logger.info(`Group members updated for ID: ${groupId}`);
+    }
+
+     // Save post under the group
+    const newPost = new Post({
+      groupId: group._id,
+      postContent: postContent,
+      images: images,
+      postedBy: email,
+    });
+    await newPost.save();
+
+    await delay(1000, 2000);
+
+    logger.info("Post saved to database successfully!");
   } catch (error) {
-    console.error("Error during scraping and posting:", error);
+    logger.error(`Error during scraping and posting: ${error.message}`);
     throw error;
   } finally {
     await browser.close();
+    await mongoose.connection.close();
   }
 }
 
