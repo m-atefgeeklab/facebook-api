@@ -18,9 +18,6 @@ app.use(express.static(path.join(__dirname, 'uploads')));
 // Define API routes
 app.use('/api/v1/groups', scraperRoutes);
 
-// Static directory for serving uploaded files (if needed)
-app.use('/uploads', express.static('uploads'));
-
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
