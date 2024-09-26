@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const BASE_URL = process.env.AWS_BASE_URL;
+
 const groupPostSchema = new mongoose.Schema(
   {
     postContent: {
@@ -8,6 +10,10 @@ const groupPostSchema = new mongoose.Schema(
     },
     images: {
       type: [String],
+      // Custom setter to prepend the BASE_URL
+      set: function (images) {
+        return images.map((image) => `${BASE_URL}/${image}`);
+      },
     },
     postedBy: {
       type: String,

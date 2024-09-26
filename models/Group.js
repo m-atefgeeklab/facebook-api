@@ -9,6 +9,12 @@ const groupSchema = new mongoose.Schema(
     members: {
       type: String,
     },
+    name: {
+      type: String,
+    },
+    brand: {
+      type: String,
+    },
   },
   {
     timestamps: true,

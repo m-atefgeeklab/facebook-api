@@ -1,6 +1,6 @@
 const express = require('express');
 const { scrapeAndPost } = require('../controllers/scraperController');
-const multerConfig = require('../utils/multer');
+const multerConfig = require('../utils/multerS3Config');
 
 const router = express.Router();
 

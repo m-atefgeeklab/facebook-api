@@ -4,7 +4,7 @@ services:
     build: .
     volumes:
       - .:/app
-      - ./uploads:/app/uploads  # Persist uploaded files to host machine
+      # - ./uploads:/app/uploads  # Persist uploaded files to host machine
     environment:
       - NODE_ENV=production
       - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium  # Point Puppeteer to Chromium path if installed separately
@@ -13,6 +13,8 @@ services:
       - default
     ports:
       - "5000:5000"  # Map the port (replace with your app's port if different)
+    command: npm run dev  # Use nodemon for development
+    
 networks:
   default:
     driver: bridge

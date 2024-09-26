@@ -48,7 +48,7 @@ RUN npm install
 COPY . .
 
 # Create the uploads directory for storing images
-RUN mkdir -p /app/uploads
+# RUN mkdir -p /app/uploads
 
 # Expose the application port (replace with your app's port if necessary)
 EXPOSE 5000
