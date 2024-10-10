@@ -25,14 +25,14 @@ createBullBoard({
   serverAdapter: serverAdapter,
 });
 
+// Connect with the database
+dbConnection();
+
 // Initialize the application
 const app = express();
 
 // Enable CORS
 app.use(cors());
-
-// Connect with the database
-dbConnection();
 
 // Middleware to parse JSON bodies
 app.use(express.json());
