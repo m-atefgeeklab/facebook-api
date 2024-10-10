@@ -11,8 +11,8 @@ services:
     networks:
       - default
     ports:
-      - "5000:5000"
-    command: npm run dev
+      - "80:80"
+    command: npm start
     # Add these to make Puppeteer run properly
     shm_size: '1gb'  # Prevent shared memory issues when launching Puppeteer
     cap_add:
