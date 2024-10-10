@@ -26,7 +26,3 @@ services:
       - "6379:6379"
     networks:
       - default
-
-networks:
-  default:
-    driver: bridge
