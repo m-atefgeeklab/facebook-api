@@ -1,10 +1,9 @@
 const express = require('express');
 const { scrapeAndPost } = require('../controllers/scraperController');
-const multerConfig = require('../utils/multerS3Config');
 
 const router = express.Router();
 
 // Route to handle scraping and posting data
-router.post('/create-post', multerConfig.uploadMultiple, scrapeAndPost);
+router.post('/create-post', scrapeAndPost);
 
 module.exports = router;

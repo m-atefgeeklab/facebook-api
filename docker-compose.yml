@@ -4,17 +4,29 @@ services:
     build: .
     volumes:
       - .:/app
-      # - ./uploads:/app/uploads  # Persist uploaded files to host machine
     environment:
       - NODE_ENV=production
-      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium  # Point Puppeteer to Chromium path if installed separately
-      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true  # Skip downloading Chromium if using system-installed version
+      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
     networks:
       - default
     ports:
-      - "5000:5000"  # Map the port (replace with your app's port if different)
-    command: npm run dev  # Use nodemon for development
-    
+      - "5000:5000"
+    command: npm run dev
+    # Add these to make Puppeteer run properly
+    shm_size: '1gb'  # Prevent shared memory issues when launching Puppeteer
+    cap_add:
+      - SYS_ADMIN  # Allow Puppeteer to run with required privileges
+    security_opt:
+      - seccomp:unconfined  # Disable seccomp to allow sandboxing
+
+  redis:
+    image: redis:7.0
+    ports:
+      - "6379:6379"
+    networks:
+      - default
+
 networks:
   default:
     driver: bridge

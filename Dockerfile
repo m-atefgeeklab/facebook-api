@@ -25,15 +25,18 @@ RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libxshmfence1 \
     xdg-utils \
+    gconf-service \
+    libx11-xcb1 \
+    libx11-6 \
+    libxss1 \
+    dbus-x11 \
+    chromium \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Chrome
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb \
-    && dpkg -i google-chrome.deb || apt-get -fy install \
-    && rm google-chrome.deb
-
-# Optionally install Chromium
-# RUN apt-get update && apt-get install -y chromium
+# Install Chromium instead of Google Chrome
+RUN apt-get update && apt-get install -y \
+    chromium \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
@@ -47,11 +50,12 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Create the uploads directory for storing images
-# RUN mkdir -p /app/uploads
-
 # Expose the application port (replace with your app's port if necessary)
 EXPOSE 5000
 
+
 # Start the application
-CMD ["node", "app.js"]
+# CMD ["npm", "run", "dev"]
+
+# Start the application
+CMD ["npm", "start"]
