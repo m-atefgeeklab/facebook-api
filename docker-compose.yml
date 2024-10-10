@@ -1,7 +1,8 @@
 version: "3"
 services:
   scraper:
-    build: .
+    build:
+      context: .
     volumes:
       - .:/app
     environment:
@@ -14,11 +15,11 @@ services:
       - "80:80"
     command: npm start
     # Add these to make Puppeteer run properly
-    shm_size: '1gb'  # Prevent shared memory issues when launching Puppeteer
+    shm_size: "1gb" # Prevent shared memory issues when launching Puppeteer
     cap_add:
-      - SYS_ADMIN  # Allow Puppeteer to run with required privileges
+      - SYS_ADMIN # Allow Puppeteer to run with required privileges
     security_opt:
-      - seccomp:unconfined  # Disable seccomp to allow sandboxing
+      - seccomp:unconfined # Disable seccomp to allow sandboxing
 
   redis:
     image: redis:7.0
@@ -26,3 +27,7 @@ services:
       - "6379:6379"
     networks:
       - default
+
+networks:
+  default:
+    driver: bridge
