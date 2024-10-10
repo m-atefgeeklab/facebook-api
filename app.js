@@ -45,7 +45,7 @@ app.use('/admin/queues', serverAdapter.getRouter()); // Use getRouter()
 app.use('/api/v1/groups', scraperRoutes);
 
 // Cron job to scrape group members for all brand accounts
-cron.schedule('*/30 * * * *', async () => {
+cron.schedule('0 * * * *', async () => {
   try {
     logger.info('Running cron job to scrape group members for all brand accounts...');
 
